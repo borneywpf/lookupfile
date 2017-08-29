@@ -64,20 +64,20 @@ doc directory.
                                             *LookupFile-command*
                                             *:LookupFile*
 Once installed, you can optionally choose a key to be used to open the
-lookupfile window. The default is <F5>. To change this value, choose a key of
+lookupfile window. The default is <C-F5>. To change this value, choose a key of
 your liking, say <A-S-L>, and add the below line to your vimrc: >
 
 	nmap <unique> <silent> <A-S-L> <Plug>LookupFile
 <
 Note that the plugin creates a mapping for the insert-mode as well, so unless
-you also explicitly specify a mapping for insert mode, the default <F5> will get
+you also explicitly specify a mapping for insert mode, the default <C-F5> will get
 mapped to invoke lookupfile in the insert-mode. >
 
 	imap <unique> <silent> <A-S-L> <C-O><Plug>LookupFile
 <
 The <Plug>LookupFile mapping is mapped to the :LookupFile command, which always
 assumes the last :LU command you use. This means, after using |:LUWalk|,
-pressing <F5> would result in executing the :LUWalk command until you type
+pressing <C-F5> would result in executing the :LUWalk command until you type
 another command. Take a look at the |LookupFile_DefaultCmd| to specify the
 initial command that this map should get assigned to and
 |LookupFile_EnableRemapCmd| to disable this behavior. If you want a map to
@@ -92,7 +92,7 @@ You can also disable the default map completely, see
 ==============================================================================
 
                                             *lookupfile-usage*
-To lookup a file, press the assigned key (default: F5) or use the :LookupFile
+To lookup a file, press the assigned key (default: Ctrl-F5) or use the :LookupFile
 command. This will open a small window above the current window, where you can
 type in a regex, and the matching filenames will be shown in the Vim7 completion
 style. Selecting a matching file and pressing Enter (<CR>) will open it in the
@@ -715,7 +715,7 @@ a map such that pressing <Esc> twice in succession will close the window: >
 - LUBufs now completes the full pathname of the buffers, so that it is less
   dependent on the current directory of Vim.
 - LUBufs and LUPath commands now present the matches in a better format.
-- Pressing <F5> while popup is visible didn't close the lookupfile window.
+- Pressing <C-F5> while popup is visible didn't close the lookupfile window.
 
                                             *lookupfile-changes-1.3*
 - New feature to create a file, if the file doesn't already exist (Ido). Can be
