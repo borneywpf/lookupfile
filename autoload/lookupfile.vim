@@ -172,7 +172,7 @@ function! s:SetupBuf()
   command! -buffer -nargs=0 -bang OpenFile
         \ :call <SID>OpenCurFile('<bang>' != '')
   command! -buffer -nargs=0 -bang AddPattern :call <SID>AddPattern()
-  nnoremap <buffer> <silent> <Plug>LookupFile :call lookupfile#CloseWindow()<CR>
+  nnoremap <buffer> <silent> <Plug>LookupFile :call lookupfile#CloseWindow()<CR>:AutoComplPopEnable<CR>
   inoremap <buffer> <silent> <Plug>LookupFile <C-E><C-C>:call lookupfile#CloseWindow()<CR>
 
   aug LookupFile
@@ -219,6 +219,7 @@ function! s:AcceptFile(splitWin, key)
     let acceptCmd = lookupfile#AcceptFile(a:splitWin, a:key)
   endif
 
+  exec "AutoComplPopEnable"
   return (!pumvisible() ? "\<C-X>\<C-U>" : '').acceptCmd
 endfunction
 
